@@ -17,14 +17,15 @@ class DoomInstance:
         self.episode_return = 0
         self.skiprate = skiprate
         self.id = id
-
+        self.game.add_game_args("+vid_forcesurface 1")
+        print("initialize")
         if self.visible:
             self.game.set_window_visible(True)
             self.game.set_sound_enabled(True)
 
         if args is not None:
             self.game.add_game_args(args)
-
+            #print(self.game)
         self.game.init()
         self.new_episode()
 
